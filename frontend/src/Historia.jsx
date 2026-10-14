@@ -1,3 +1,4 @@
+import Icon from "./components/Icon.jsx";
 import React, { useEffect, useRef } from "react";
 import { Header, Footer } from "./components/Layout.jsx";
 
@@ -61,7 +62,7 @@ export default function Historia() {
       <a className="skip-link" href="#contenido">Saltar al contenido</a>
       <Header />
       <main id="contenido" className="history-page" ref={page}>
-        <div className="section history-back"><a className="text-link" href="/">← Volver al inicio</a></div>
+        <div className="section history-back"><a className="text-link" href="/"><Icon name="arrow-left" /> Volver al inicio</a></div>
         <section className="story-intro section" aria-labelledby="story-title">
           <div className="story-intro-copy">
             <p className="eyebrow">CONOCE A JAVI · MI HISTORIA</p>
@@ -108,14 +109,14 @@ export default function Historia() {
             <h2 id="story-today-title">Tu historia es<br />nuestro <em>punto de partida.</em></h2>
             <p>Hoy acompaño a mujeres a construir ese poder desde adentro: una imagen con intención, coherente con quiénes son y con quiénes están eligiendo ser.</p>
             <p>Empezamos por una conversación sobre tu estilo, tu cotidiano y la imagen que quieres proyectar. Después exploramos las herramientas que mejor te acompañan: color, siluetas, rostro y armario.</p>
-            <a className="button" href="/servicios/">Encuentra tu asesoría <span aria-hidden="true">↗</span></a>
+            <a className="button" href="/servicios/">Encuentra tu asesoría <Icon name="arrow-up-right" /></a>
           </div>
         </section>
         <section className="contact section" aria-labelledby="history-contact-title" data-reveal>
           <p className="eyebrow">AHORA QUIERO CONOCER TU HISTORIA</p>
           <h2 id="history-contact-title">¿En qué etapa estás <em>tú?</em></h2>
           <p>Una conversación inicial gratuita de 30 minutos para conocerte<br />y descubrir qué asesoría encaja con lo que necesitas hoy.</p>
-          <a className="button" href="mailto:javipazsalinaspinto@gmail.com?subject=Quiero%20solicitar%20mi%20conversaci%C3%B3n%20inicial">Empecemos por una conversación <span aria-hidden="true">↗</span></a>
+          <a className="button" href="mailto:javipazsalinaspinto@gmail.com?subject=Quiero%20solicitar%20mi%20conversaci%C3%B3n%20inicial">Empecemos por una conversación <Icon name="arrow-up-right" /></a>
           <p className="contact-note">Presencial en Estocolmo · Online desde donde estés</p>
         </section>
       </main>

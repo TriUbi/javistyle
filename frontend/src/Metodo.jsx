@@ -1,3 +1,4 @@
+import Icon from "./components/Icon.jsx";
 import React from "react";
 import { Header, Footer } from "./components/Layout.jsx";
 import { contactLink } from "./data/services.js";
@@ -20,12 +21,12 @@ export default function Metodo() {
             <h1 id="method-page-title">Tres gestos para<br />revelar <em>tu imagen.</em></h1>
             <p className="method-page-lead">Un proceso pausado e íntimo.</p>
             <p>Conversación, análisis y construcción. Un recorrido que empieza en quién eres y toma forma en los colores, las siluetas y las prendas que eliges.</p>
-            <a className="button" href="#conversacion">Conoce el proceso <span aria-hidden="true">↓</span></a>
+            <a className="button" href="#conversacion">Conoce el proceso <Icon name="arrow-down" /></a>
           </div>
           <img src="/img/DSC02723.jpg" alt="Javi estudiando referencias de estilo con una revista, cuaderno y cinta métrica" width="1067" height="1600" fetchPriority="high" />
         </section>
         <nav className="method-page-nav section" aria-label="Pasos del método">
-          {steps.map((step, index) => <a href={`#${step.id}`} key={step.id} style={{ '--button-photo': `url("/img/${step.photo}.jpg")` }}><span>0{index + 1}</span>{step.title}<span aria-hidden="true">↓</span></a>)}
+          {steps.map((step, index) => <a href={`#${step.id}`} key={step.id} style={{ '--button-photo': `url("/img/${step.photo}.jpg")` }}><span>0{index + 1}</span>{step.title}<Icon name="arrow-down" /></a>)}
         </nav>
         <div className="section method-page-steps">
           {steps.map((step, index) => (
@@ -56,9 +57,9 @@ export default function Metodo() {
           <p className="eyebrow">EMPECEMOS POR ESCUCHARNOS</p>
           <h2 id="method-contact-title">Tu primer paso:<br />una <em>conversación.</em></h2>
           <p>Una sesión introductoria gratuita de 30 minutos para conocer tu estilo,<br />tus objetivos y el servicio que mejor te acompaña.</p>
-          <a className="button button-free-consultation" href={contactLink('Quiero solicitar mi conversación inicial de 30 minutos')}>Solicitar mi conversación gratuita <span aria-hidden="true">↗</span></a>
+          <a className="button button-free-consultation" href={contactLink('Quiero solicitar mi conversación inicial de 30 minutos')}>Solicitar mi conversación gratuita <Icon name="arrow-up-right" /></a>
           <p className="contact-note">Presencial en Estocolmo · Online desde donde estés</p>
-          <a className="text-link" href="/servicios/">Explora las asesorías <span aria-hidden="true">↗</span></a>
+          <a className="text-link" href="/servicios/">Explora las asesorías <Icon name="arrow-up-right" /></a>
         </section>
       </main>
       <Footer />

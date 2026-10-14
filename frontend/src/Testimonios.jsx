@@ -1,3 +1,4 @@
+import Icon from "./components/Icon.jsx";
 import React from "react";
 import { Header, Footer } from "./components/Layout.jsx";
 import { contactLink } from "./data/services.js";
@@ -37,7 +38,7 @@ export default function Testimonios() {
                   <img src={`/img/${example.photo}.jpg`} alt="Foto ilustrativa de una sesión; no corresponde al personaje ficticio" width="80" height="80" loading="lazy" />
                   <div><strong>{example.name}</strong><span>{example.service}</span><small>Personaje ficticio · Foto ilustrativa</small></div>
                 </figcaption>
-                <div className="testimonial-stars" aria-label="5 de 5 estrellas, valoración ficticia"><span aria-hidden="true">★★★★★</span><small>Valoración de ejemplo</small></div>
+                <div className="testimonial-stars" aria-label="5 de 5 estrellas, valoración ficticia"><span className="star-icons" aria-hidden="true">{[1,2,3,4,5].map((star) => <Icon key={star} name="star" />)}</span><small>Valoración de ejemplo</small></div>
                 <blockquote>«{example.quote}»</blockquote>
                 <span className="testimonial-demo-tag">TESTIMONIO FICTICIO</span>
               </figure>
@@ -53,7 +54,7 @@ export default function Testimonios() {
           <p className="eyebrow">AHORA, HABLEMOS DE TI</p>
           <h2 id="testimonials-contact-title">Tu historia puede empezar<br />con una <em>conversación.</em></h2>
           <p>Una sesión inicial gratuita de 30 minutos para conocer tu estilo,<br />tus objetivos y la asesoría que mejor te acompaña.</p>
-          <a className="button button-free-consultation" href={contactLink('Quiero solicitar mi conversación inicial de 30 minutos')}>Solicitar mi conversación gratuita <span aria-hidden="true">↗</span></a>
+          <a className="button button-free-consultation" href={contactLink('Quiero solicitar mi conversación inicial de 30 minutos')}>Solicitar mi conversación gratuita <Icon name="arrow-up-right" /></a>
           <p className="contact-note">Presencial en Estocolmo · Online desde donde estés</p>
         </section>
       </main>

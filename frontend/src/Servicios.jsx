@@ -1,3 +1,4 @@
+import Icon from "./components/Icon.jsx";
 import React from "react";
 import { Header, Footer } from "./components/Layout.jsx";
 import { services, contactLink } from "./data/services.js";
@@ -17,7 +18,7 @@ export default function Servicios() {
             <img src="/img/DSC02261.jpg" alt="Javi escuchando a una clienta durante una asesoría" width="1600" height="1067" fetchPriority="high" />
             <img src="/img/DSC02566.jpg" alt="Selección de prendas junto a una clienta en su armario" width="1067" height="1600" decoding="async" />
           </div>
-          <a className="button" href="#asesorias">Descubre las asesorías <span aria-hidden="true">↓</span></a>
+          <a className="button" href="#asesorias">Descubre las asesorías <Icon name="arrow-down" /></a>
         </section>
         <section className="services-belief" aria-labelledby="services-belief-title">
           <p className="eyebrow">TU IMAGEN CUENTA LO QUE ERES</p>
@@ -31,7 +32,7 @@ export default function Servicios() {
             <h2 id="services-approach-title">Primero tu historia.<br />Después, <em>tu estilo.</em></h2>
             <p>Soy Javiera. Mi propio camino de Chile a Suecia me llevó a estudiar imagen y a descubrir una forma de volver a reconocerme. Hoy acompaño a otras mujeres en ese proceso.</p>
             <p>Empezamos por escucharte. Exploramos tus colores, tu silueta, tus rasgos y tu armario según lo que necesitas. Después, llevamos esas ideas a elecciones que tengan sentido en tu vida cotidiana.</p>
-            <a className="text-link" href="/mi-historia/">Conoce a Javi <span aria-hidden="true">↗</span></a>
+            <a className="text-link" href="/mi-historia/">Conoce a Javi <Icon name="arrow-up-right" /></a>
           </div>
         </section>
         <section className="services-selector section" id="asesorias" aria-labelledby="services-selector-title">
@@ -39,7 +40,7 @@ export default function Servicios() {
           <h2 id="services-selector-title">¿Qué necesitas <em>hoy?</em></h2>
           <p>Puedes empezar por un área concreta o explorar tu imagen de forma integral.</p>
           <nav className="services-index" aria-label="Explorar servicios">
-            {services.map((service, index) => <a key={service.id} href={`#${service.id}`}><span>0{index + 1}</span>{service.name}<span aria-hidden="true">↓</span></a>)}
+            {services.map((service, index) => <a key={service.id} href={`#${service.id}`}><span>0{index + 1}</span>{service.name}<Icon name="arrow-down" /></a>)}
           </nav>
         </section>
         <div className="section services-details">
@@ -54,7 +55,7 @@ export default function Servicios() {
                 <p>{service.description}</p>
                 <h3 className="service-copy-label">Cómo te sientes</h3>
                 <p className="service-detail-benefit">{service.benefit}</p>
-                <a className="button" href={contactLink(service.subject)}>Quiero empezar <span aria-hidden="true">↗</span></a>
+                <a className="button" href={contactLink(service.subject)}>Quiero empezar <Icon name="arrow-up-right" /></a>
               </div>
             </section>
           ))}
@@ -67,7 +68,7 @@ export default function Servicios() {
             <article><span className="service-number">02 / ANÁLISIS</span><h3>Una mirada personal.</h3><p>Estudiamos color, morfología, rostro o armario según la asesoría que elijas.</p></article>
             <article><span className="service-number">03 / CONSTRUCCIÓN</span><h3>Lo llevamos a tu vida.</h3><p>Construimos tu lenguaje de imagen con paleta, siluetas y prendas elegidas con intención.</p></article>
           </div>
-          <a className="text-link" href="/metodo/">Descubre el método de Javi <span aria-hidden="true">↗</span></a>
+          <a className="text-link" href="/metodo/">Descubre el método de Javi <Icon name="arrow-up-right" /></a>
         </section>
         <section className="services-faq section" aria-labelledby="services-faq-title">
           <div className="services-faq-heading"><p className="eyebrow">ANTES DE EMPEZAR</p><h2 id="services-faq-title">Tus preguntas.<br />Un primer paso <em>más claro.</em></h2></div>
@@ -84,7 +85,7 @@ export default function Servicios() {
           <p className="eyebrow">NO TIENES QUE DECIDIRLO SOLA</p>
           <h2 id="services-help-title">¿Por dónde <em>empezar?</em></h2>
           <p>Cuéntame en qué momento estás y qué te gustaría cambiar. En una conversación inicial gratuita de 30 minutos, descubrimos qué servicio encaja contigo.</p>
-          <a className="button button-free-consultation" href={contactLink('Quiero solicitar mi conversación inicial de 30 minutos')}>Hablemos de tu estilo <span aria-hidden="true">↗</span></a>
+          <a className="button button-free-consultation" href={contactLink('Quiero solicitar mi conversación inicial de 30 minutos')}>Hablemos de tu estilo <Icon name="arrow-up-right" /></a>
           <p className="services-help-note">Presencial en Estocolmo · Online desde donde estés</p>
         </section>
       </main>

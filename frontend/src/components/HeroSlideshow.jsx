@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
 const slides = [
-  { photo: 'DSC02554', position: 'center 22%', alt: 'Javiera y una clienta compartiendo una sonrisa al explorar sus colores', caption: 'Descubrir tu estilo también se disfruta.' },
-  { photo: 'DSC02261', position: 'center', alt: 'Javiera conversando con una clienta durante una asesoría de imagen', caption: 'Todo empieza por escucharte.' },
-  { photo: 'DSC02390', position: 'center 25%', alt: 'Javiera asesorando a una clienta sobre los detalles que enmarcan su rostro', caption: 'Una mirada que pone el foco en ti.' },
+  { photo: 'DSC02554', position: 'center 22%', mobilePosition: '42% 12%', alt: 'Javiera y una clienta compartiendo una sonrisa al explorar sus colores', caption: 'Descubrir tu estilo también se disfruta.' },
+  { photo: 'DSC02261', position: 'center', mobilePosition: '66% center', alt: 'Javiera conversando con una clienta durante una asesoría de imagen', caption: 'Todo empieza por escucharte.' },
+  { photo: 'DSC02390', position: 'center 25%', mobilePosition: '46% 18%', alt: 'Javiera asesorando a una clienta sobre los detalles que enmarcan su rostro', caption: 'Una mirada que pone el foco en ti.' },
 ];
 
 export default function HeroSlideshow() {
@@ -35,7 +35,7 @@ export default function HeroSlideshow() {
     <div className="hero-slideshow" aria-hidden="true">
       {slides.map((slide, index) => (
         <div key={slide.photo} className={`hero-slide${index === active ? ' is-active' : ''}`} aria-hidden={index !== active}>
-          <img src={`/img/${slide.photo}.jpg`} alt={slide.alt} style={{ objectPosition: slide.position }} width={slide.photo === 'DSC02261' ? 1600 : 1280} height={slide.photo === 'DSC02261' ? 1067 : 1600} fetchPriority={index === 0 ? 'high' : 'low'} decoding="async" />
+          <img src={`/img/${slide.photo}.jpg`} alt={slide.alt} style={{ '--slide-position': slide.position, '--slide-mobile-position': slide.mobilePosition }} width={slide.photo === 'DSC02261' ? 1600 : 1280} height={slide.photo === 'DSC02261' ? 1067 : 1600} fetchPriority={index === 0 ? 'high' : 'low'} decoding="async" />
         </div>
       ))}
 

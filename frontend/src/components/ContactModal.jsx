@@ -1,3 +1,4 @@
+import Icon from "./Icon.jsx";
 import React, { useEffect, useRef, useState } from 'react';
 import { email, services } from '../data/services.js';
 
@@ -62,8 +63,8 @@ export default function ContactModal() {
 
   return (
     <dialog className="contact-modal" ref={dialog} aria-labelledby="contact-modal-title" aria-describedby="contact-modal-description"
-      onClose={() => opener.current?.focus()} onClick={(event) => { if (event.target === dialog.current) { const bounds = dialog.current.getBoundingClientRect(); if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) close(); } }}>
-      <button className="contact-modal-close" type="button" onClick={close} aria-label="Cerrar formulario">×</button>
+      onClose={() => { const trigger = opener.current?.getClientRects().length ? opener.current : document.querySelector('.menu-toggle'); trigger?.focus(); }} onClick={(event) => { if (event.target === dialog.current) { const bounds = dialog.current.getBoundingClientRect(); if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) close(); } }}>
+      <button className="contact-modal-close" type="button" onClick={close} aria-label="Cerrar formulario"><Icon name="close" /></button>
       <p className="eyebrow">LA JAVI PAZ · EMPECEMOS POR TI</p>
       <h2 id="contact-modal-title">Cuéntame tu <em>momento.</em></h2>
       <p id="contact-modal-description">Completa tus datos y abriremos tu app de correo con el mensaje listo para revisar y enviar a Javi.</p>
@@ -76,7 +77,7 @@ export default function ContactModal() {
         <label htmlFor="request-mode">¿Cómo prefieres la asesoría?<select id="request-mode" name="mode"><option>Online</option><option>Presencial en Estocolmo</option><option>Por decidir</option></select></label>
         <label htmlFor="request-message">Cuéntame qué buscas<textarea id="request-message" name="message" value={message} onChange={(event) => { setMessage(event.target.value); setPrepared(false); }} rows="5" required maxLength="1500" placeholder="¿En qué etapa estás? ¿Qué te gustaría cambiar o descubrir de tu estilo?" /></label>
         <p className="contact-form-note">Tus datos se incluirán en el correo. El mensaje se envía cuando pulses «Enviar» en tu app de correo.</p>
-        <button className={`button${service === initialService ? ' button-free-consultation' : ''}`} type="submit">Abrir mi correo <span aria-hidden="true">↗</span></button>
+        <button className={`button${service === initialService ? ' button-free-consultation' : ''}`} type="submit">Abrir mi correo <Icon name="arrow-up-right" /></button>
         {prepared && <div className="contact-form-status" role="status"><p>El mensaje está preparado. Si tu app no se abrió, comprueba que tienes una app de correo configurada o <a href={mailLink}>intenta abrirlo de nuevo</a>.</p><p>También puedes escribir directamente a <a href={`mailto:${email}`}>{email}</a>.</p></div>}
       </form>
     </dialog>
