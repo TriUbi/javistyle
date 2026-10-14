@@ -413,3 +413,13 @@ body:has(.mobile-menu[open]){overflow:hidden}
 @media(max-width:380px){.hero h1{font-size:54px}.hero .intro{font-size:14px}.mobile-menu-panel{padding:24px}}
 @media(max-height:600px) and (max-width:900px){.hero{min-height:660px}.mobile-menu-panel{gap:16px}.header .mobile-menu nav a{font-size:23px;padding:11px 0}}
 @media(prefers-reduced-motion:reduce){.section-pending{opacity:1;transform:none}.section-entered,.mobile-menu[open] .mobile-menu-panel{animation:none}.button .icon,.philosophy-link .icon{transition:none;transform:none}}
+
+/* Finer, quieter icons and mobile navigation. */
+.icon{width:16px;height:16px;flex-basis:16px}
+.text-link .icon,footer a .icon{width:14px;height:14px;flex-basis:14px;margin-left:4px}
+.star-icons{gap:2px}.star-icons .icon{width:13px;height:13px;flex-basis:13px}
+.menu-toggle .icon,.menu-close .icon,.contact-modal-close .icon{width:22px;height:22px;flex-basis:22px}
+.header .mobile-menu nav a{font-size:23px;padding-block:13px;font-weight:400}
+.header .mobile-menu nav a:last-child{font-size:13px;font-weight:500}
+.mobile-menu-panel{gap:22px}.mobile-menu-panel .eyebrow{font-size:9px;letter-spacing:.14em}
+@media(max-width:380px){.header .mobile-menu nav a{font-size:21px}}
