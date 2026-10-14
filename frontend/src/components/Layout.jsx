@@ -23,6 +23,9 @@ export function Header({ overlay = false }) {
     <button className="menu-toggle" ref={toggle} type="button" aria-label="Abrir menú" aria-haspopup="dialog" aria-controls="mobile-menu" aria-expanded={open} onClick={() => { menu.current.showModal(); setOpen(true); }}><Icon name="menu" /></button>
     <dialog className="mobile-menu" id="mobile-menu" ref={menu} aria-labelledby="mobile-menu-title" onClose={() => { setOpen(false); toggle.current?.focus(); }} onClick={(event) => { if (event.target === menu.current) closeMenu(); }}>
       <div className="mobile-menu-panel">
+        <div className="mobile-menu-collage" aria-hidden="true">
+          {['DSC02274', 'DSC02554', 'DSC02443', 'DSC02299'].map((photo) => <img key={photo} src={`/img/${photo}.jpg`} alt="" width="1280" height="1600" loading="lazy" decoding="async" />)}
+        </div>
         <div className="mobile-menu-heading"><span id="mobile-menu-title" className="brand">La Javi Paz<span> asesoría de imagen</span></span><button type="button" className="menu-close" aria-label="Cerrar menú" onClick={closeMenu}><Icon name="close" /></button></div>
         <p className="eyebrow">UN ESTILO QUE SE SIENTE TUYO</p>
         <nav aria-label="Navegación móvil"><NavigationLinks onSelect={closeMenu} /></nav>

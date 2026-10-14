@@ -423,3 +423,16 @@ body:has(.mobile-menu[open]){overflow:hidden}
 .header .mobile-menu nav a:last-child{font-size:13px;font-weight:500}
 .mobile-menu-panel{gap:22px}.mobile-menu-panel .eyebrow{font-size:9px;letter-spacing:.14em}
 @media(max-width:380px){.header .mobile-menu nav a{font-size:21px}}
+
+/* Smiling photo collage under a deep green mobile-menu overlay. */
+.mobile-menu-panel{position:relative;isolation:isolate;overflow:hidden;background:#064b42;color:var(--paper);padding-bottom:max(28px,env(safe-area-inset-bottom))}
+.mobile-menu-collage{position:absolute;inset:0;z-index:-2;display:flex;flex-wrap:wrap;gap:8px;padding:8px;pointer-events:none;background:#064b42}
+.mobile-menu-collage img{display:block;flex:0 0 calc(50% - 4px);width:calc(50% - 4px);height:calc(50% - 4px);min-width:0;object-fit:cover;object-position:center 24%}
+.mobile-menu-collage img:nth-child(2){object-position:35% 18%}.mobile-menu-collage img:nth-child(3){object-position:60% 18%}
+.mobile-menu-panel::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(145deg,rgb(6 75 66 / 89%),rgb(3 44 38 / 94%));pointer-events:none}
+.mobile-menu-panel .eyebrow,.mobile-menu-note{color:#e4ece5}
+.header .mobile-menu nav a{color:var(--paper);border-bottom-color:rgb(245 241 233 / 27%);text-shadow:0 1px 8px rgb(0 0 0 / 18%)}
+.header .mobile-menu nav a:last-child{color:var(--paper)}
+.header .mobile-menu nav a:hover{color:#fff;background:rgb(255 255 255 / 7%)}
+.header .mobile-menu a:focus-visible,.mobile-menu .menu-close:focus-visible{outline:2px solid var(--paper);outline-offset:4px}
+.mobile-menu .menu-close{color:var(--paper)}
