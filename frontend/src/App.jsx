@@ -1,51 +1,95 @@
 import React from "react";
+import HeroSlideshow from "./components/HeroSlideshow.jsx";
+import { Header, Footer } from "./components/Layout.jsx";
+
+import { services, email, contactLink } from "./data/services.js";
 
 export default function App() {
   return (
     <>
-    <a className="skip-link" href="#contenido">Saltar al contenido</a>
-    <header className="header">
-      <a className="brand" href="#inicio" aria-label="Inicio">ESTILO<span> asesoría de moda</span></a>
-      <nav aria-label="Navegación principal">
-        <a href="#servicios">Servicios</a>
-        <a href="#fundadora">La fundadora</a>
-        <a href="#contacto">Hablemos <span aria-hidden="true">↗</span></a>
-      </nav>
-    </header>
-    <main id="contenido">
-      <section className="hero section" id="inicio" aria-labelledby="hero-title">
-        <div className="hero-copy">
-          <p className="eyebrow">ASESORÍA DE IMAGEN · ESTILO PERSONAL</p>
-          <h1 id="hero-title">Tu estilo.<br />Tu <em>esencia.</em></h1>
-          <p className="intro">Vestir bien empieza por conocerte. Encuentra un estilo que se sienta tuyo y un armario que acompañe tu vida.</p>
-          <a className="button" href="#servicios">Descubre los servicios <span aria-hidden="true">↗</span></a>
-        </div>
-        <div className="style-study" role="img" aria-label="Composición de colores y formas inspirada en tejidos: crema, terracota y verde oliva">
-          <div className="swatch swatch-cream"></div><div className="swatch swatch-clay"></div><div className="swatch swatch-olive"></div>
-          <span className="study-label">MENOS RUIDO.<br />MÁS TÚ.</span>
-          <span className="study-caption">Un estilo que habla de ti</span>
-        </div>
-      </section>
-      <section className="philosophy section" aria-labelledby="philosophy-title">
-        <p className="eyebrow">UNA MIRADA MÁS PERSONAL</p>
-        <h2 id="philosophy-title">No necesitas ser otra persona.<br />Necesitas reconocerte en lo que llevas.</h2>
-        <p>La moda puede ser una herramienta para expresarte. La propuesta: mirar lo que ya tienes, entender lo que necesitas y elegir con intención.</p>
-      </section>
-      <section className="services section" id="servicios" aria-labelledby="services-title">
-        <div className="section-heading"><div><p className="eyebrow">ENCUENTRA TU PUNTO DE PARTIDA</p><h2 id="services-title">Un espacio para tu estilo.</h2></div><p>Servicios propuestos.<br />La oferta definitiva se publicará próximamente.</p></div>
-        <div className="service-grid">
-          <article className="service"><span className="service-number">01 / CONOCERTE</span><h3>Asesoría de<br />imagen personal</h3><p>Explora tus gustos, tu rutina y cómo quieres sentirte al vestir. Un punto de partida para definir una dirección de estilo propia.</p><span className="service-tag">Estilo · Identidad · Inspiración</span></article>
-          <article className="service"><span className="service-number">02 / REDESCUBRIR</span><h3>Edición de<br />armario</h3><p>Mira tu armario con otros ojos. Descubre nuevas combinaciones y reconoce las prendas que encajan con tu día a día.</p><span className="service-tag">Combinaciones · Orden · Versatilidad</span></article>
-          <article className="service"><span className="service-number">03 / ELEGIR</span><h3>Compras con<br />intención</h3><p>Una propuesta de acompañamiento para elegir prendas que complementen tu armario, tu estilo y tus necesidades.</p><span className="service-tag">Selección · Coherencia · Funcionalidad</span></article>
-        </div>
-      </section>
-      <section className="founder section" id="fundadora" aria-labelledby="founder-title">
-        <div className="portrait-placeholder"><span className="portrait-monogram" aria-hidden="true">E.</span><span>Espacio para el retrato de la fundadora</span></div>
-        <div className="founder-copy"><p className="eyebrow">DETRÁS DEL PROYECTO</p><h2 id="founder-title">Una mirada cercana.<br />Un estilo <em>muy tuyo.</em></h2><p className="founder-name">[Nombre de la fundadora]</p><p>Próximamente conocerás a la persona detrás de este proyecto: su historia, su relación con la moda y su forma de acompañarte.</p><p>Este espacio se completará con su biografía y una fotografía personal.</p><a className="text-link" href="#contacto">Empecemos por conocernos <span aria-hidden="true">↗</span></a></div>
-      </section>
-      <section className="contact section" id="contacto" aria-labelledby="contact-title"><p className="eyebrow">EL PRIMER PASO</p><h2 id="contact-title">Hablemos de <em>ti.</em></h2><p>¿Quieres descubrir qué servicio encaja contigo?<br />Próximamente encontrarás aquí los datos de contacto.</p><span className="coming-soon">Contacto disponible próximamente</span></section>
-    </main>
-    <footer><a className="brand" href="#inicio">ESTILO<span> asesoría de moda</span></a><p>Tu estilo, a tu manera.</p><a href="#inicio">Volver arriba ↑</a></footer>
+      <a className="skip-link" href="#contenido">Saltar al contenido</a>
+      <Header overlay />
+      <main id="contenido">
+        <section className="hero" id="inicio" aria-labelledby="hero-title">
+          <HeroSlideshow />
+          <div className="hero-copy">
+            <p className="eyebrow">ASESORÍA DE IMAGEN · ESTOCOLMO Y ONLINE</p>
+            <h1 id="hero-title">Vuelve a<br />sentirte <em>tú.</em></h1>
+            <p className="intro">¿Tu imagen ya no refleja quién eres hoy? Te acompaño a descubrir los colores, las prendas y los detalles que te representan, para vestirte con intención y sentirte más segura en tu día a día.</p>
+            <a className="button" href="#contacto">Quiero encontrar mi estilo <span aria-hidden="true">↗</span></a>
+            <p className="hero-note">Empecemos con una conversación gratuita de 30 minutos.</p>
+          </div>
+        </section>
+        <section className="philosophy" aria-labelledby="philosophy-title">
+          <div className="philosophy-collage" aria-hidden="true">
+            {['DSC02261', 'DSC02278', 'DSC02299', 'DSC02503', 'DSC02649'].map((photo) => (
+              <img key={photo} src={`/img/${photo}.jpg`} alt="" loading="lazy" decoding="async" />
+            ))}
+          </div>
+          <div className="philosophy-content">
+            <p className="eyebrow">UNA MIRADA MÁS PERSONAL</p>
+            <h2 id="philosophy-title">No necesitas ser otra persona.<br />Necesitas reconocerte en lo que llevas.</h2>
+            <hr className="philosophy-divider" />
+            <p className="philosophy-description">Tu vida cambia. Tu imagen también puede acompañarte. Partimos de quién eres, de lo que te gusta y de cómo quieres sentirte para construir un estilo que tenga sentido para ti.</p>
+            <a className="philosophy-link" href="/servicios/">ENCUENTRA TU PUNTO DE PARTIDA <span aria-hidden="true">↗</span></a>
+          </div>
+        </section>
+        <section className="services services-preview section" id="servicios" aria-labelledby="services-title">
+          <div className="section-heading">
+            <div><p className="eyebrow">CINCO FORMAS DE EMPEZAR</p><h2 id="services-title">De «no sé qué ponerme»<br />a «esto se siente mío».</h2></div>
+            <p>No tienes que saber qué necesitas.<br />Lo descubrimos en la primera conversación.</p>
+          </div>
+          <div className="service-grid">
+            {services.map((service, index) => (
+              <article className="service" key={service.name}>
+                <div className="service-visual">
+                <img className="service-photo" src={`/img/${service.photo}.jpg`} alt={service.alt} width={service.photo === 'DSC02503' ? 1067 : 1280} height="1600" loading="lazy" decoding="async" />
+                  <a className="service-image-button" href={`/servicios/#${service.id}`} aria-label={`Descubrir ${service.name}`}>{service.name}</a>
+                </div>
+                <span className="service-number">0{index + 1} / TU PUNTO DE PARTIDA</span>
+                <h3>{service.name}</h3>
+                <span className="service-tag">{service.benefit}</span>
+              </article>
+            ))}
+          </div>
+          <a className="button" href="/servicios/">Explora los servicios <span aria-hidden="true">↗</span></a>
+        </section>
+        <section className="meet-javi" aria-labelledby="meet-javi-title">
+          <div className="meet-javi-inner">
+            <img className="meet-javi-portrait" src="/img/DSC02274.jpg" alt="Javiera Paz sonriendo durante una asesoría de imagen" width="1280" height="1600" loading="lazy" decoding="async" />
+            <div className="meet-javi-copy">
+              <p className="eyebrow">LA PERSONA DETRÁS DE LA JAVI PAZ</p>
+              <h2 id="meet-javi-title">Conoce a <em>Javi.</em></h2>
+              <p>Soy Javiera, chilena y hoy en Suecia. Al cambiar de país, también cambió la manera en que me veía. Volver a reconocerme fue el comienzo de mi camino en la asesoría de imagen.</p>
+              <p>Por eso, antes de hablar de colores o prendas, quiero conocerte. Entender tu historia, tu momento y lo que te hace sentir tú. Desde ahí construimos un estilo que te acompañe.</p>
+              <a className="button" href="/mi-historia/">Descubre mi historia <span aria-hidden="true">↗</span></a>
+            </div>
+            <div className="meet-javi-moments" aria-hidden="true">
+              <img src="/img/DSC02278.jpg" alt="" width="1280" height="1600" loading="lazy" decoding="async" />
+              <img src="/img/DSC02554.jpg" alt="" width="1280" height="1600" loading="lazy" decoding="async" />
+            </div>
+          </div>
+        </section>
+        <section className="method section" id="metodo" aria-labelledby="method-title">
+          <p className="eyebrow">ASÍ VAMOS A TRABAJAR</p>
+          <h2 id="method-title">Primero te escucho.<br />Después construimos tu estilo.</h2>
+          <div className="method-grid">
+            <article><span className="service-number">01 / CONVERSAMOS</span><h3>Tu vida, antes que tu ropa.</h3><p>Hablamos de tu rutina, de lo que te gusta y de lo que hoy no te representa. Ese es nuestro punto de partida.</p></article>
+            <article><span className="service-number">02 / DESCUBRIMOS</span><h3>Entiende tus posibilidades.</h3><p>Según el servicio que elijas, exploramos tus colores, proporciones, rasgos o armario. Cada decisión tiene una razón que puedes comprender.</p></article>
+            <article><span className="service-number">03 / LO LLEVAMOS A TU DÍA A DÍA</span><h3>Un estilo que puedes vivir.</h3><p>Traducimos lo que descubrimos en elecciones concretas de prendas, combinaciones y detalles. Para que sepas cómo seguir al terminar la asesoría.</p></article>
+          </div>
+          <a className="text-link" href="/metodo/">Conoce el método de Javi <span aria-hidden="true">↗</span></a>
+        </section>
+        <section className="contact section" id="contacto" aria-labelledby="contact-title">
+          <p className="eyebrow">TU PRIMER PASO EMPIEZA AQUÍ</p>
+          <h2 id="contact-title">Hagamos espacio<br />para quien eres <em>hoy.</em></h2>
+          <p>Cuéntame qué te gustaría cambiar y cómo quieres sentirte.<br />En una conversación inicial gratuita de 30 minutos, exploramos qué asesoría encaja contigo.</p>
+          <a className="button button-free-consultation" href={contactLink('Quiero solicitar mi conversación inicial de 30 minutos')}>Solicitar mi conversación gratuita <span aria-hidden="true">↗</span></a>
+          <p className="contact-note">Presencial en Estocolmo · Online desde donde estés</p>
+          <a className="contact-email" href={`mailto:${email}`}>{email}</a>
+        </section>
+      </main>
+      <Footer />
     </>
   );
 }
