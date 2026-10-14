@@ -7,7 +7,8 @@ const slides = [
 ];
 
 export default function HeroSlideshow() {
-  const [active, setActive] = useState(0);
+  const [firstSlide] = useState(() => window.matchMedia('(max-width: 900px)').matches ? 2 : 0);
+  const [active, setActive] = useState(firstSlide);
   const [reducedMotion, setReducedMotion] = useState(false);
   const [visible, setVisible] = useState(true);
 
@@ -35,7 +36,7 @@ export default function HeroSlideshow() {
     <div className="hero-slideshow" aria-hidden="true">
       {slides.map((slide, index) => (
         <div key={slide.photo} className={`hero-slide${index === active ? ' is-active' : ''}`} aria-hidden={index !== active}>
-          <img src={`/img/${slide.photo}.jpg`} alt={slide.alt} style={{ '--slide-position': slide.position, '--slide-mobile-position': slide.mobilePosition }} width={slide.photo === 'DSC02261' ? 1600 : 1280} height={slide.photo === 'DSC02261' ? 1067 : 1600} fetchPriority={index === 0 ? 'high' : 'low'} decoding="async" />
+          <img src={`/img/${slide.photo}.jpg`} alt={slide.alt} style={{ '--slide-position': slide.position, '--slide-mobile-position': slide.mobilePosition }} width={slide.photo === 'DSC02261' ? 1600 : 1280} height={slide.photo === 'DSC02261' ? 1067 : 1600} fetchPriority={index === firstSlide ? 'high' : 'low'} decoding="async" />
         </div>
       ))}
 
